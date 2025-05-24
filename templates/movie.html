@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel='stylesheet' href="/static/css/style.css">
+    <title>Movie</title>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li>
+              <a class="navbar-brand nav-link disabled" href="#">Rethymno Cinema</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/movies">Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/account_details">Account details</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/customer_booking_data">Booking</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  </head>
+  <body class="body">
+    <form method='POST'>
+    </form.csrf>
+    <div class="container">
+      <br>
+      <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-4">
+          <img class="thumbnail" src="/static/images/{{ image_id }}.jpg">
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8">
+          <h1>{{ movie.movie_title }}</h1>
+          <br>
+          <p>Length/minutes: {{ movie.length }}</p>
+          <p>Start time: {{ viewing.start_datetime }}</p>
+          <p>Screen: {{ viewing.screen_id }}</p>
+          <p>Price: {{ movie.viewing_price }}</p>
+            <br>
+            {% if viewing.vip_seats_available > 0 %}
+              {% if viewing.seats_available > viewing.vip_seats_available %}
+                {% if logged_in_customer.is_vip == 0 %}
+                  {% if logged_in_customer.balance >= movie.viewing_price + vip_seat_cost %}
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" name="vip_seats_booking" value="1"> Vip seats (+ £3.00)
+                      </label>
+                    </div>
+                  {% endif %}
+                  {% if movie.viewing_price + vip_seat_cost > logged_in_customer.balance %}
+                    <div class="checkbox">
+                      <label>
+                        <p class="help-block"> insufficient funds for VIP seats </p>
+                      </label>
+                    </div>
+                  {% endif %}
+                {% endif %}
+                {% if logged_in_customer.is_vip == 1 %}
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="vip_seats_booking" value="1"> Vip seats (Free)
+                    </label>
+                  </div>
+                {% endif %}
+              {% endif %}
+              {% if viewing.vip_seats_available >= viewing.seats_available %}
+                <p class="help-block"> No VIP seats available </p>
+              {% endif %}
+            {% endif %}
+            {% if 1 > viewing.vip_seats_available %}
+              <p class="help-block"> No VIP seats available </p>
+            {% endif %}
+            <br>
+            <button type="submit" name="submit1" id="submit1" class="btn btn-success btn-lg text-white">Book</button>
+          </div>
+        </div>
+      <br>
+      <br>
+      <p class='lead'>Director:</p>
+      <p>{{ movie.director }}</p>
+      <br>
+      <p class='lead'>Cast:</p>
+      <p>{{ movie.cast }}</p>
+      <br>
+      <p class='lead'>Description:</p>
+      <p>{{ movie.description }}</p>
+      <br>
+      <div class="form-group">
+        <label>Write a review</label>
+        <input type="text" name="comment" id="comment" class="form-control" placeholder="Add comment">
+        <button type="submit" name="submit2" id="submit2" class="mt-1 btn btn-primary text-white">Submit review</button>
+      </div>
+      <br>
+      <p class="lead">Reviews</p>
+      {% for review in reviews %}
+      <div class="container mx-auto">
+        <div class="card mx-auto mt-3">
+          {% for customer in customers %}
+          {% if customer.customer_id == review.customer_id %}
+          <h5 class="mt-1 ml-1 card-title"><a style="color: #000000;" href="">{{ customer.username }}</a></h5>
+          {% endif %}
+          {% endfor %}
+          <p class="mt-1 ml-1 card-text">{{ review.comment }}</p>
+          <small class="mt-1 ml-1 text-muted">{{ review.post_date }} {{review.post_time}}</small>
+        </div>
+      </div>
+      {% endfor %}
+      {% if is_empty == 1 %}
+      <br>
+      <p class="lead">No reviews have been posted for this movie</p>
+      {% endif %}
+    </div>  
+    </form> 
+    <div style='height:300px'></div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>

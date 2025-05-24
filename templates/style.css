@@ -1,0 +1,40 @@
+.body{
+    background-color: #fff9ee;
+}
+.navbar{
+    background-color: #004eb4 !important;
+}
+.navbar .navbar-brand{
+    color: #FFFFFF;
+}
+.navbar .navbar-brand:hover{
+    color: #FFFFFF;
+}
+.navbar .navbar-nav li a{
+    color: #FFFFFF !important;
+}
+
+.login-nav {
+    position: absolute;
+    width: 100%;
+}
+
+.login-container {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+.login-prompt {
+    width: 80%;
+}
+
+.login-box {
+    width: 50%;
+}
+
+table td,
+table th
+{
+  border: 3px solid #fff9ee !important;
+}

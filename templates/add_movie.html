@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel='stylesheet' href="/static/css/style.css">
+    <title>Movie data</title>
+
+    <style>
+      .login-container {
+        min-height: 188vh;
+        display: flex;
+        align-items: center;
+}
+    </style>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light login-nav">
+      <a class="navbar-brand nav-link disabled" href="#">Rethymno Cinema</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/admin">Admin page</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/movie_data">Movie data</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  </head>
+  <body class='body'>
+    <div class="container container-fluid mx-auto login-container">
+      <div class='row login-prompt mx-auto'>
+        <form class="mx-auto login-box" method='POST' enctype="multipart/form-data">
+          {{form.csrf}}
+          <h1 class="h3 mb-3 font-weight-normal text-center">Add movie</h1>
+          <div class='form-group'>
+            <p>Movie title</p>
+            <input type="text" name="movie_title" id="movie_title" class="form-control input-sm" required>
+          </div>
+          <div class='form-group'>
+            <p>Movie genre</p>
+            <input type="text" name="movie_genre" id="movie_genre" class="form-control input-sm" required>
+          </div>
+          <div class='form-group'>
+            <p>Viewing price</p>
+            <input type="float" name="viewing_price" id="viewing_price" class="form-control input-sm" required>
+          </div>
+          <div class='form-group'>
+            <p>Length</p>
+            <input type="integer" name="length" id="length" class="form-control input-sm" required>
+          </div>
+          <div class='form-group'>
+            <p>Director</p>
+            <input type="text" name="director" id="director" class="form-control input-sm" required>
+          </div>
+          <div class='form-group'>
+            <p>Cast</p>
+            <input type="text" name="cast" id="cast" class="form-control input-sm" required>
+          </div>
+          <div class='form-group'>
+            <p>Description</p>
+            <input type="text" name="description" id="description" class="form-control input-sm" required>
+          </div>
+          <div class="form-group">
+            <p>Movie image</p>
+            <label>Upload File</label>
+            <input type="file" name="movie_image" id="movie_image" id="movie_image" required>
+            <p class="help-block">Only jpg allowed (Typical dimensions: 350x552)</p>
+          </div>
+          <button type="submit" class="btn btn-lg btn-primary btn-block">Add movie</button>
+        </form>
+      </div>
+    </div>
+    <div style='height:100px'></div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
