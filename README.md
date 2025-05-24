@@ -30,7 +30,7 @@ A full-featured web application for managing cinema bookings, built with **Flask
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/cinema-booking-app.git
+   git clone https://github.com/pantelidakis_i/cinema-booking-app.git
    cd cinema-booking-app
 
 2. **Create and activate a virtual environment**
