@@ -47,6 +47,44 @@ A full-featured web application for managing cinema bookings, built with **Flask
 5. **Open your browser and visit**
    http://localhost:5000
 
+---
+
+## 📁 Project Structure
+
+cinema-booking-app/
+├── app.py
+├── templates/
+│   ├── index.html
+│   ├── login.html
+│   ├── register.html
+│   └── ...
+├── static/
+│   └── style.css
+├── *.csv
+├── requirements.txt
+└── README.md
+
+---
+
+## 🧪 Demo Users
+
+If no bookings exist, the app auto-generates initial screenings on first run.
+You can also pre-load customers/admins manually using SQLite or code.
+
+---
+
+## 🙋‍♂️ Author
+
+Created by Ioannis Pantelidakis
+GitHub: github.com/pantelidakis_i
+
+---
+
+## 📜 License
+This project is provided for educational and portfolio use.
+Feel free to build on it — attribution appreciated.
+
+
 
 
 
