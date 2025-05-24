@@ -49,9 +49,12 @@ A full-featured web application for managing cinema bookings, built with **Flask
 
 ---
 
-<pre> ## 📁 Project Structure
-    ``` cinema-booking-app/ ├── app.py ├── templates/ │ ├── index.html │ ├── login.html │ ├── register.html │ └── ... ├── static/ │ └── style.css ├── *.csv ├──    
-    requirements.txt └── README.md ``` </pre>
+## 📁 Project Structure
+   
+    ```
+    cinema-booking-app/ ├── app.py ├── templates/ │ ├── index.html │ ├── login.html │ ├── register.html │ └── ... ├── static/ │ └── style.css ├── *.csv ├──    
+    requirements.txt └── README.md 
+    ```
 
 ---
 
