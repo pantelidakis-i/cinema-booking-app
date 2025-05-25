@@ -32,20 +32,29 @@ A full-featured web application for managing cinema bookings, built with **Flask
    ```bash
    git clone https://github.com/pantelidakis_i/cinema-booking-app.git
    cd cinema-booking-app
+   ```
 
 2. **Create and activate a virtual environment**
+   ```bash
    python -m venv venv
    .\venv\Scripts\Activate.ps1
+   ```
 
-3. **Install dependencies**
+4. **Install dependencies**
+   ```bash
    pip install -r requirements.txt
+   ```
 
-4. **Run the app**
+6. **Run the app**
+   ```bash
    $env:FLASK_APP = "app.py"
    flask run
+   ```
 
-5. **Open your browser and visit**
+8. **Open your browser and visit**
+   ```bash
    http://localhost:5000
+   ```
 
 ---
 
