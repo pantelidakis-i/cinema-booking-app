@@ -68,7 +68,7 @@ You can also pre-load customers/admins manually using SQLite or code.
 ## 🙋‍♂️ Author
 
 Created by Ioannis Pantelidakis
-GitHub: [github.com/pantelidakis_i](https://github.com/pantelidakis_i)
+GitHub: [github.com/pantelidakis-i](https://github.com/pantelidakis-i)
 
 ---
 
